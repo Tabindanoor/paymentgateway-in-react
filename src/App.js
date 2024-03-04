@@ -35,7 +35,6 @@ const App = () => {
   return (
     <Elements stripe={stripePromise}>
       <PaymentForm />
-      <p>this is p </p>
     </Elements>
   );
 };

@@ -33,10 +33,16 @@ const stripePromise = loadStripe('your_publishable_key_here');
 
 const App = () => {
   return (
-    <Elements stripe={stripePromise}>
+
+    <div>
+      <p>my name is tabinda noor</p>
+       <Elements stripe={stripePromise}>
       <PaymentForm />
 
     </Elements>
+
+    </div>
+   
   );
 };
 

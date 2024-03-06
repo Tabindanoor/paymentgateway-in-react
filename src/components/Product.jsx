@@ -1,9 +1,15 @@
-import React from 'react'
+// Product.js
+import React from 'react';
 
-const Product = () => {
+const Product = ({ product, addToCart }) => {
+  const { id, name, price } = product;
+
   return (
-    <div>Product</div>
-  )
-}
+    <li>
+      {name} - ${price}
+      <button onClick={() => addToCart(id)}>Add to Cart</button>
+    </li>
+  );
+};
 
-export default Product
+export default Product;

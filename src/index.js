@@ -3,23 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Cart from './components/Cart';
 // import reportWebVitals from './reportWebVitals';
+// https://fakestoreapi.com/products
+// https://dummyjson.com/products
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Routes>
         <Route path='/' element={<App/>}/>
-        {/* <Route path="/" element={<Layout />}>
-          <Route index element={<App />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route> */}
-
+        <Route path='/cart' element={<Cart/>}/>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <App/>
   </React.StrictMode>
 );
 

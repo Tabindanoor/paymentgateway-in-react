@@ -28,25 +28,41 @@
 //   );
 // };
 
+
+
+
 // export default ProductList;
-// ProductList.js
-import React from 'react';
-import Product from './Product';
 
-const ProductList = ({ products, addToCart }) => {
-  console.log('Products are mine :', products.products);
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-  if (!Array.isArray(products)) {
-    console.error('Products is not an array:', products);
-    return null; // or render a loading indicator or error message
-  }
+const ProductList = () => {
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    axios.get('https://dummyjson.com/products')
+      .then(response => setProducts(response.data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+console.log(products,"product")
+console.log(products.products,"product meri products")
   return (
-    <ul>
-      {products.map(product => (
-        <Product key={product.id} product={product} addToCart={addToCart} />
-      ))}
-    </ul>
+    <div>
+      
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    {products.map(product => (
+      <div key={product.product.id} className="bg-white shadow-lg p-4">
+        <img src={product.image} alt={product.name} className="w-full h-48 object-cover mb-4" />
+        <h2 className="text-lg font-semibold">{product.name}</h2>
+        <p className="text-gray-500">{product.description}</p>
+        <p className="text-gray-700 mt-2">${product.price}</p>
+        <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md">Add to Cart</button>
+      </div>
+    ))}
+
+    {products.id}
+  </div>
+    </div>
   );
 };
 

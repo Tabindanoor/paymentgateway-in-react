@@ -19,7 +19,8 @@ const App = () => {
   return (
     <div>
       <h1>Online Shopping</h1>
-      <ProductList products={products} addToCart={addToCart} />
+      <ProductList/>
+      {/* <ProductList products={products} addToCart={addToCart} /> */}
     </div>
   );
 };

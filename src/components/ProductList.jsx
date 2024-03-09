@@ -57,7 +57,6 @@ console.log(products.products,"product meri products")
         <p className="text-gray-500">{product.description}</p>
         <p className="text-gray-700 mt-2">${product.price}</p>
         <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md">Add to Cart</button>
-        <button onClick={} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md">Add to Cart</button>
 
       </div>
     ))}

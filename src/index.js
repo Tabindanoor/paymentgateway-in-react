@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Cart from './components/Cart';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import Cart from './components/Cart';
 // import reportWebVitals from './reportWebVitals';
 // https://fakestoreapi.com/products
 // https://dummyjson.com/products

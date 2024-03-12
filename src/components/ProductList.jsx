@@ -37,7 +37,7 @@ const ProductList = () => {
     <h1>Products</h1>
 
 
-    <div className="grid grid-cols-4 grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-4 ">
   {/* <div>01</div>
   <div>09</div> */}
   {Product.map(product => (
@@ -46,14 +46,14 @@ const ProductList = () => {
           <p className='font-bold'>Brand :{product.brand}</p>
           <p className='font-bold'>Title :{product.title}</p>
           <p className='font-bold'>Category :{product.category}</p>
-          <p className='font-bold'>Description :{product.description}</p>
+          {/* <p className='font-bold'>Description :{product.description}</p> */}
           <p>Discount Percentage:{product.discountPercentage}</p>
   
           <img style={{height:"200px", width:"250px"}} src={product.images[2]} alt={product.name} className="w-full h-48 object-cover mb-4" />
           <h2 className="text-lg font-semibold">Price {product.price}</h2>
           <p className="text-gray-500">Rating: {product.rating}</p>
           <p className="text-gray-500">Stock: {product.stock}</p>
-          <img src={product.thumbnail} style={{height:"200px", width:"250px"}} alt='img' className="text-gray-700 mt-2"/><p>Thumbnail </p>
+          {/* <img src={product.thumbnail} style={{height:"200px", width:"250px"}} alt='img' className="text-gray-700 mt-2"/><p>Thumbnail </p> */}
           <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md">Add to Cart</button>
           <br /><br />
         </div>

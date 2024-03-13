@@ -55,7 +55,7 @@ const ProductList = () => {
           <p className="text-gray-500">Stock: {product.stock}</p>
           {/* <img src={product.thumbnail} style={{height:"200px", width:"250px"}} alt='img' className="text-gray-700 mt-2"/><p>Thumbnail </p> */}
           <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md">Add to Cart</button>
-          <br /><br />
+          <br /><br /><br />
         </div>
       ))}
     </div>

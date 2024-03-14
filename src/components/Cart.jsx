@@ -1,61 +1,31 @@
-// Cart.js
-import React, { useState } from 'react';
 
-const Cart = ({ cartItems, removeFromCart }) => {
-  const [paymentComplete, setPaymentComplete] = useState(false);
 
-  const handlePayment = () => {
-    // Simulate payment process
-    setTimeout(() => {
-      setPaymentComplete(true);
-      removeFromCart(); // Clear cart after payment
-    }, 2000);
+
+import React from 'react';
+import { useCart } from './CartContext';
+
+const Cart = () => {
+  const { state, dispatch } = useCart();
+
+  const handleRemoveItem = (itemId, price, quantity) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: { id: itemId, price, quantity } });
   };
-
-  if (paymentComplete) {
-    return <div>Payment successful! Your order has been placed.</div>;
-  }
 
   return (
     <div>
-      <h1>Cart</h1>
-      {cartItems.map((item) => (
-        <div key={item.id}>
-          <h2>{item.name}</h2>
-          <p>Price: ${item.price}</p>
-          <button onClick={() => removeFromCart(item.id)}>Remove</button>
-        </div>
-      ))}
-      <h3>Total: ${cartItems.reduce((acc, item) => acc + item.price, 0)}</h3>
-      <button onClick={handlePayment}>Pay Now</button>
+      <h2>Shopping Cart</h2>
+      <ul>
+        {state.items.map((item) => (
+          <li key={item.id}>
+            {item.title} - ${item.price} - Quantity: {item.quantity}
+            <button onClick={() => handleRemoveItem(item.id, item.price, item.quantity)}>Remove</button>
+          </li>
+        ))}
+      </ul>
+      <p>Total Price: ${state.totalPrice}</p>
     </div>
   );
 };
 
 export default Cart;
 
-
-// // Cart.js
-// import React from 'react';
-
-// const Cart = ({ cartItems, removeFromCart }) => {
-//   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
-
-//   return (
-//     <div>
-//       <h1>Cart</h1>
-//       {cartItems.map((item) => (
-//         <div key={item.id}>
-//           <h2>{item.name}</h2>
-//           <p>Price: ${item.price}</p>
-//           <button onClick={() => removeFromCart(item.id)}>Remove</button>
-//           <hr />
-//         </div>
-//       ))}
-//       <h3>Total Price: ${totalPrice}</h3>
-//       <button>Proceed to Checkout</button>
-//     </div>
-//   );
-// };
-
-// export default Cart;

@@ -1,19 +1,22 @@
+import products from './Data';
 import { useCart } from './CartContext';
-import Product from './Data';
-import PaymentForm from './PaymentForm';
+
 
 const ProductList = () => {
-  // const { cart, totalAmount, addToCart } = useCart();
-  const { addToCart } = useCart();
+  const { dispatch } = useCart();
+
+  const handleAddToCart = (product) => {
+    dispatch({ type: 'ADD_ITEM', payload: product });
+  };
 
   return (
-    <div className="p-4 ">
+    <div className=" mx-auto justify-center text-center ">
       <p className='font-bold font-serif text-4xl'>Product List</p>
-      <div className="grid grid-cols-4 gap-4">
-        {Product.map((product) => (
+      <div className="grid  lg:grid-cols-3 md:grid-cols2 grid-cols-1 gap-4">
+        {products.map((product) => (
           <div key={product.id} >
 
-<div class="h-[685px] relative m-10 px-2 py-3 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+<div class="h-[685px] relative  px-2 py-3 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
 <h5 class="text-lg font-bold tracking-tight text-slate-900">Brand: {product.brand}</h5>
       <h5 class="text-lg tracking-tight text-slate-900"><span className='font-bold'>Category:</span> {product.category}</h5>
       <h5 class="text-lg tracking-tight text-slate-900"><span className='font-bold'>Title:</span> {product.title}</h5>
@@ -21,7 +24,7 @@ const ProductList = () => {
   <p class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
     
     <img class="object-cover w-full" src={product.images[2]} alt="productimage" />
-    <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{product.discountPercentage}% OFF</span>
+    <span class="absolute top-0 leProduct.component';-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{product.discountPercentage}% OFF</span>
   </p>
   <div class="mt-4 px-5 pb-5">
    
@@ -34,11 +37,12 @@ const ProductList = () => {
       
     </div>
     <button            
-       onClick={() => addToCart(product)}
+       onClick={() => handleAddToCart(product)}
  class=" bottom-4 left-0 absolute  flex items-center w-full justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
       <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
+     
       Add to cart
       </button>
   </div>
@@ -46,13 +50,6 @@ const ProductList = () => {
           </div>
         ))}
       </div>
-
-      {/* {cart.length > 0 && (
-        <div>
-          <h2>Total Amount: {totalAmount}</h2>
-          <PaymentForm totalAmount={totalAmount} />
-        </div>
-      )} */}
 
     </div>
   );

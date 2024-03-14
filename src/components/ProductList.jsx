@@ -1,86 +1,60 @@
-
-
-// // ProductList.js
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const products = [
-//   { id: 1, name: 'Product 1', price: 10, description: 'Description of product 1' },
-//   { id: 2, name: 'Product 2', price: 20, description: 'Description of product 2' },
-//   { id: 3, name: 'Product 3', price: 30, description: 'Description of product 3' },
-// ];
-
-// const ProductList = ({ addToCart }) => {
-//   return (
-//     <div>
-//       <h1>Product List</h1>
-//       {products.map((product) => (
-//         <div key={product.id}>
-//           <h2>{product.name}</h2>
-//           <p>{product.description}</p>
-//           <p>Price: ${product.price}</p>
-//           <button onClick={() => addToCart(product)}>Add to Cart</button>
-//           <hr />
-//         </div>
-//       ))}
-//       <Link to="/cart">Go to Cart</Link>
-//     </div>
-//   );
-// };
-
-
+import { useCart } from './CartContext';
 import Product from './Data';
+import PaymentForm from './PaymentForm';
 
 const ProductList = () => {
+  // const { cart, totalAmount, addToCart } = useCart();
+  const { addToCart } = useCart();
+
   return (
-    <div className='p-4'>
-    <h1>Products</h1>
+    <div className="p-4 ">
+      <p className='font-bold font-serif text-4xl'>Product List</p>
+      <div className="grid grid-cols-4 gap-4">
+        {Product.map((product) => (
+          <div key={product.id} >
 
-
-    <div className="grid grid-cols-4 ">
-  {/* <div>01</div>
-  <div>09</div> */}
-  {Product.map(product => (
-        <div key={product.id} className="bg-red-900 shadow-lg p-4  ">
-          <p>{product.id}</p>
-          <p className='font-bold'>Brand :{product.brand}</p>
-          <p className='font-bold'>Title :{product.title}</p>
-          <p className='font-bold'>Category :{product.category}</p>
-          {/* <p className='font-bold'>Description :{product.description}</p> */}
-          <p>Discount Percentage:{product.discountPercentage}</p>
+<div class="h-[685px] relative m-10 px-2 py-3 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+<h5 class="text-lg font-bold tracking-tight text-slate-900">Brand: {product.brand}</h5>
+      <h5 class="text-lg tracking-tight text-slate-900"><span className='font-bold'>Category:</span> {product.category}</h5>
+      <h5 class="text-lg tracking-tight text-slate-900"><span className='font-bold'>Title:</span> {product.title}</h5>
   
-          <img style={{height:"200px", width:"250px"}} src={product.images[2]} alt={product.name} className="w-full h-48 object-cover mb-4" />
-          <h2 className="text-lg font-semibold">Price {product.price}</h2>
-          <p className="text-gray-500">Rating: {product.rating}</p>
-          <p className="text-gray-500">Stock: {product.stock}</p>
-          {/* <img src={product.thumbnail} style={{height:"200px", width:"250px"}} alt='img' className="text-gray-700 mt-2"/><p>Thumbnail </p> */}
-          <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md">Add to Cart</button>
-          <br /><br /><br />
-        </div>
-      ))}
+  <p class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
+    
+    <img class="object-cover w-full" src={product.images[2]} alt="productimage" />
+    <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{product.discountPercentage}% OFF</span>
+  </p>
+  <div class="mt-4 px-5 pb-5">
+   
+      <h5 class="text-lg tracking-tight text-slate-900"> <span className='font-bold'>Description: <br /> </span>{product.description}</h5>
+      <p className="text-lg tracking-tight text-slate-900"><span className='font-bold'>Rating:</span> {product.rating}</p>
+      <p className="text-lg tracking-tight text-slate-900"><span className='font-bold'>Stock:</span> {product.stock}</p>
+    <div class=" mb-5 flex items-center justify-between">
+      <p   class="text-xl justify-center mx-auto text-center  font-bold text-slate-900">      <span className='font-bold'>Price: $</span> {product.price}
+      </p>
+      
     </div>
-
-    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {Product.map(product => (
-        <div key={product.id} className="bg-red-900 shadow-lg p-4  ">
-          <p>{product.id}</p>
-          <p className='font-bold'>Brand :{product.brand}</p>
-          <p className='font-bold'>Title :{product.title}</p>
-          <p className='font-bold'>Category :{product.category}</p>
-          <p className='font-bold'>Description :{product.description}</p>
-          <p>Discount Percentage:{product.discountPercentage}</p>
-  
-          <img style={{height:"200px", width:"250px"}} src={product.images[2]} alt={product.name} className="w-full h-48 object-cover mb-4" />
-          <h2 className="text-lg font-semibold">Price {product.price}</h2>
-          <p className="text-gray-500">Rating: {product.rating}</p>
-          <p className="text-gray-500">Stock: {product.stock}</p>
-          <img src={product.thumbnail} style={{height:"200px", width:"250px"}} alt='img' className="text-gray-700 mt-2"/><p>Thumbnail </p>
-          <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md">Add to Cart</button>
-        </div>
-      ))}
-    </div> */}
+    <button            
+       onClick={() => addToCart(product)}
+ class=" bottom-4 left-0 absolute  flex items-center w-full justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+      Add to cart
+      </button>
   </div>
-  
+</div>           
+          </div>
+        ))}
+      </div>
+
+      {/* {cart.length > 0 && (
+        <div>
+          <h2>Total Amount: {totalAmount}</h2>
+          <PaymentForm totalAmount={totalAmount} />
+        </div>
+      )} */}
+
+    </div>
   );
 };
 

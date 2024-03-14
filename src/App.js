@@ -1,16 +1,18 @@
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+
+
+import { CartProvider } from './components/CartContext.jsx';
 import ProductList from './components/ProductList';
+import './App.css';
+import CartSummary from './components/CartSummary.jsx';
 
-const App = () => {
-  
+function App() {
   return (
-    <div className=''> 
-    <ProductList/>
+    <div className='App'>
+      <ProductList />
+      <CartSummary />
 
-   
-    </div>
+  </div>
   );
-};
+}
 
 export default App;

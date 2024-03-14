@@ -5,6 +5,9 @@ import App from './App';
 import { CartProvider } from './components/CartContext';
 // https://fakestoreapi.com/products
 // https://dummyjson.com/products
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('your_publishable_key_here');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

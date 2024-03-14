@@ -81,7 +81,7 @@ const ProductList = () => {
 
   return (
     <div className=" mx-auto justify-center text-center ">
-      <p className='font-bold font-serif text-4xl'>Product List</p>
+      <p className='font-bold font-serif text-4xl'>Product List</p><br />
       <div className="grid  lg:grid-cols-3 md:grid-cols2 grid-cols-1 gap-4">
         {products.map((product) => (
           <div key={product.id}>

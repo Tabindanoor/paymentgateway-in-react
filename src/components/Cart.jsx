@@ -48,7 +48,7 @@ const Cart = () => {
 
   // Load Stripe after component mounts
   useState(() => {
-    setStripePromise(loadStripe('YOUR_STRIPE_PUBLIC_KEY'));
+    setStripePromise(loadStripe('pk_test_51OuD2h2KJl9g1FEjYT0cPxOcdkIExNZ6sAVXjGZHsJqo69jR9P1BSdDCPe17JgU80BWRV38UOdBzO1JDDpt2Cd5L00JRonKjgJ'));
   }, []);
 
   const handleRemoveItem = (itemId, price, quantity) => {

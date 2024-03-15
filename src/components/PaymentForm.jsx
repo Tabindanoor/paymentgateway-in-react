@@ -25,8 +25,7 @@ const PaymentForm = ({ totalAmount }) => {
       return;
     }
 
-    // Send the paymentMethod.id to your server for confirmation
-    // ...
+  
   };
 
   return (

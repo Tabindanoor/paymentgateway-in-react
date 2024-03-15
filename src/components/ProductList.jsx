@@ -38,7 +38,7 @@ const ProductList = () => {
               <div className="mt-4 px-5 pb-5">
                 <h5 className="text-lg tracking-tight text-slate-900"> <span className='font-bold'>Description: <br /> </span>{product.description}</h5>
                 <p className="text-lg tracking-tight text-slate-900"><span className='font-bold'>Rating:</span> {product.rating}</p>
-                <p className="text-lg tracking-tight text-slate-900"><span className='font-bold'>Stock:</span> {product.stock}</p>
+                {/* <p className="text-lg tracking-tight text-slate-900"><span className='font-bold'>Stock:</span> {product.stock}</p> */}
                 <div className=" mb-5 flex items-center justify-between">
                   <p className="text-xl justify-center mx-auto text-center  font-bold text-slate-900"> <span className='font-bold'>Price: $</span> {product.price}</p>
                 </div>

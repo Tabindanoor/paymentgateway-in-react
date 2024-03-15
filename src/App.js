@@ -10,9 +10,11 @@ function App() {
       <div className='App flex m-5'>
         <div className='w-[70%]'>
         <ProductList />  
-              </div>
+        
+        </div>
         <div className='w-[30%]'>
-            <Cart /></div>       
+            <Cart />
+        </div>       
       </div>
   );
 }

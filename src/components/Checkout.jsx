@@ -19,11 +19,10 @@
 // };
 
 // export default Checkout;
-
-
 import React from 'react';
 import { useCart } from './CartContext';
 import { redirectToCheckout } from '@stripe/stripe-js';
+import { stripePromise } from '..';
 
 const Checkout = ({ totalPrice }) => {
   const { state } = useCart();

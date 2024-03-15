@@ -31,8 +31,8 @@ function App() {
         <ProductList />  
               </div>
 
-        <div className='w-[30%]'>
-            <Cart /></div>
+        {/* <div className='w-[30%]'>
+            <Cart /></div> */}
 
         
       </div>

@@ -1,11 +1,37 @@
 
 
 
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import { useCart } from './CartContext';
+import Checkout from './Checkout';
+import { response } from 'express';
 
 const Cart = () => {
+  // const cart = useContext(useCart)
   const { state, dispatch } = useCart();
+  // const { state, dispatch } = useContext(useCart);
+
+  // const checkout=()=>{
+  //   console.log(cart)
+  // }
+  
+  // const checkout =async()=>{
+  //   await fetch ('http://localhost:4000/checkout ',{
+  //     method: 'POST ',
+  //     headers:{
+  //       'Content-Type': 'application/json'}
+  //       ,
+  //       body: JSON.stringify({items:cart.items})
+  //   }).then((response)=>{
+  //     return response.json();
+  //   }).then((response)=>{
+  //     if(response.url){
+  //       window.location.assign(response.url);
+  //     }
+  //   });
+  // }
+
+
 
   // const handleRemoveItem = (itemId, price, quantity) => {
   //   dispatch({ type: 'REMOVE_ITEM', payload: { id: itemId, price, quantity } });
@@ -36,7 +62,7 @@ const Cart = () => {
         ))}
       </ul>
       <p className='text-2xl font-bold'>Total Price: ${state.totalPrice}</p>
-      <button>Pay through stripe </button>
+      {/* <button onClick={()=>checkout}>Pay through stripe </button> */}
     </div>
   );
 };

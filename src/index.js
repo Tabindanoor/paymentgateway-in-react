@@ -6,14 +6,22 @@ import { CartProvider } from './components/CartContext';
 // https://fakestoreapi.com/products
 // https://dummyjson.com/products
 import { loadStripe } from '@stripe/stripe-js';
+import { BrowserRouter, Route, Routes, } from 'react-router-dom';
+import Checkout from './components/Checkout';
 
-const stripePromise = loadStripe('your_publishable_key_here');
+export const stripePromise = loadStripe('pk_test_51OuD2h2KJl9g1FEjYT0cPxOcdkIExNZ6sAVXjGZHsJqo69jR9P1BSdDCPe17JgU80BWRV38UOdBzO1JDDpt2Cd5L00JRonKjgJ');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CartProvider>
-      <App />
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App/>}  />
+        {/* <Route path='/checkout' element={<Checkout/>}  /> */}
+
+      </Routes>
+      </BrowserRouter>
     </CartProvider>
   </React.StrictMode>
 
@@ -21,7 +29,3 @@ root.render(
 
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();

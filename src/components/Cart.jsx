@@ -95,7 +95,7 @@ const Cart = () => {
       </ul>
       <p className='text-2xl font-bold'>Total Price: ${state.totalPrice}</p>
       {/* <button onClick={handleCheckout} className='bg-green-600 text-white p-3 rounded-lg'>Checkout</button> */}
-      {state.totalPrice > 0 && <button onClick={handleCheckout} className='bg-green-600 shadow-lg  border-2 border-red-600  text-white p-3 rounded-lg'>Checkout</button>}
+      {state.totalPrice > 0 && <button onClick={handleCheckout} className='bg-green-600 shadow-lg animate-bounce border-2 border-red-600  text-white p-3 rounded-lg'>Payment </button>}
 
     </div>
   );

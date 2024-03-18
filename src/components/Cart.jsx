@@ -88,12 +88,12 @@ const Cart = () => {
             <p className='font-bold text-black-500 '>{item.title} </p>
             <p className='font-bold text-black-500 '> ${item.price} </p>
             <p className='font-bold text-black-500 '>Quantity: {item.quantity}</p> 
-            <button className='bg-red-600 text-white p-3 rounded-lg' onClick={() => handleRemoveItem(item.id, item.price, item.quantity)}>Remove</button>
+            <button className='bg-red-600 text-white p-3 rounded-lg' onClick={() => handleRemoveItem(item.id, item.price, item.quantity)}>Remove Item </button>
          <br /><br />
           </li>
         ))}
       </ul>
-      <p className='text-2xl font-bold'>Total Price: ${state.totalPrice}</p>
+      <p className='text-2xl font-bold bg-purple-500 rounded-lg p-3 '>Total Price: ${state.totalPrice}</p>
       {/* <button onClick={handleCheckout} className='bg-green-600 text-white p-3 rounded-lg'>Checkout</button> */}
       {state.totalPrice > 0 && <button onClick={handleCheckout} className='bg-green-600 shadow-lg animate-bounce border-2 border-red-600  text-white p-3 rounded-lg'>Payment </button>}
 
